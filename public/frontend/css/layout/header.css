@@ -1,0 +1,461 @@
+/* Navbar Start */
+.nav {
+  padding: 28px 100px;
+  box-shadow: 0 3px 14px #cacaca4a;
+}
+
+@media (max-width: 767px) {
+  .nav {
+    padding: 28px 50px;
+  }
+}
+
+.nav__form {
+  width: 350px;
+}
+
+.nav__formShow {
+  display: block !important;
+}
+
+.nav__formContent {
+  position: relative;
+}
+
+.nav__search {
+  width: 100%;
+  padding: 11px 20px;
+  border: 1px solid var(--gray-color);
+  color: var(--black-color);
+}
+
+.nav__search::placeholder {
+  color: var(--gray-color);
+  text-transform: capitalize;
+}
+
+.nav__searchIcon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  -moz-transition: background-color 0.4s ease-in-out;
+  -ms-transition: background-color 0.4s ease-in-out;
+  -o-transition: background-color 0.4s ease-in-out;
+}
+
+.nav__searchIcon:hover {
+  background-color: var(--alt-color);
+}
+
+.nav__options {
+  padding: 11px 5px;
+  background-color: #f8f8f8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.nav__option {
+  padding: 0 20px;
+}
+
+@media (max-width: 1199px) {
+  .nav__options {
+    display: none;
+  }
+}
+
+.nav__option:not(:last-child) {
+  border-right: 1px solid #d6d6d6;
+}
+
+.nav__optionText {
+  margin-left: 8px !important;
+}
+
+.nav__optionDown {
+  margin-left: 8px;
+}
+
+.nav__icons {
+  margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+  .nav__form {
+    margin: 0 20px;
+  }
+
+  .nav__register {
+    display: none;
+  }
+
+  .nav__icons,
+  .nav__bars {
+    margin: 0 !important;
+  }
+}
+
+.nav__register {
+  width: 62px;
+  height: 62px;
+  position: relative;
+  background-color: #f8f8f8;
+  text-align: center;
+  line-height: 62px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.nav__bars {
+  margin-left: 50px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.nav .content,
+.nav__settings,
+.nav__option,
+.nav__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.nav__searchIcon,
+.nav__register {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.nav__search,
+.nav__options {
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+}
+/* Navbar End */
+
+/* Sign up Start */
+.signup,
+.login,
+.email,
+.mobileRegister {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+@media (max-width: 414px) {
+  .signup,
+  .login,
+  .email,
+  .mobileRegister {
+    position: absolute;
+    padding-top: 0;
+  }
+}
+
+.signup__container,
+.login__container,
+.email__container,
+.mobileRegister__container {
+  width: 632px;
+  margin: auto;
+  padding: 30px;
+  background-color: #fff;
+}
+
+@media (max-width: 767px) {
+  .signup__container,
+  .login__container,
+  .email__container,
+  .mobileRegister__container {
+    width: 100%;
+  }
+}
+
+.signup__header,
+.login__header,
+.email__header,
+.mobileRegister__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  padding: 0px 0 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.signup__title,
+.login__title,
+.email__title,
+.mobileRegister__title {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.signup__close,
+.login__close,
+.email__close,
+.mobileRegister__close {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.signup__content,
+.login__content,
+.email__content {
+  position: relative;
+}
+
+.signup__label,
+.login__label {
+  position: absolute;
+  top: 8px;
+  left: 23px;
+  color: #a0a3a5;
+}
+
+.signup__input,
+.login__input,
+.email__input {
+  width: 100%;
+
+  padding: 20px;
+  border: 1px solid var(--gray-color);
+  color: var(--black-color);
+  outline: 0;
+}
+
+.signup__input::placeholder,
+.login__input::placeholder,
+.email__input::placeholder {
+  text-transform: capitalize;
+  color: #bebebe;
+}
+
+.signup__select,
+.login__select {
+  padding-top: 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.signup__mobile,
+.login__mobile {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+}
+
+.signup__msg,
+.login__msg,
+.mobileRegister__msg {
+  font-size: 16px;
+  color: #bebebe;
+  margin: 15px 0 30px 0 !important;
+}
+
+.signup__submit,
+.login__submit,
+.email__submit {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-transform: capitalize;
+  border: 0;
+  font-size: 18px;
+  transition: background-color 0.4s ease-in-out;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  -moz-transition: background-color 0.4s ease-in-out;
+  -ms-transition: background-color 0.4s ease-in-out;
+  -o-transition: background-color 0.4s ease-in-out;
+}
+
+.signup__submit:hover,
+.login__submit:hover,
+.email__submit:hover {
+  background-color: var(--alt-color);
+}
+
+.signup__or,
+.login__or {
+  margin: 35px 0;
+  text-align: center;
+  position: relative;
+  color: var(--gray-color);
+  text-transform: capitalize;
+}
+
+.signup__or:before,
+.login__or:before,
+.signup__or:after,
+.login__or:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: var(--gray-color);
+}
+
+.signup__or:before,
+.login__or:before {
+  left: 0;
+}
+
+.signup__or:after,
+.login__or:after {
+  right: 0;
+}
+
+.signup__buttons,
+.login__buttons,
+.email__buttons {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--gray-color);
+  background: transparent;
+  text-transform: capitalize;
+  color: var(--gray-color);
+}
+
+.signup__buttons:not(:last-child),
+.login__buttons:not(:last-child),
+.email__buttons:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.signup__container,
+.signup__submit,
+.signup__buttons,
+.login__container,
+.login__submit,
+.login__buttons,
+.email__container,
+.email__submit,
+.email__buttons,
+.mobileRegister__input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.signup__buttons img,
+.login__buttons img,
+.email__buttons img {
+  position: absolute;
+  left: 15px;
+}
+
+.signup__qus,
+.login__qus,
+.email__qus {
+  margin-top: 20px !important;
+  color: var(--gray-color);
+}
+
+.signup__login,
+.login__signup {
+  color: var(--black-color);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* Sign up End */
+
+/* Email Start */
+.email {
+  display: none;
+}
+
+.email__submit {
+  margin-top: 10px;
+}
+
+.email__auth {
+  margin-top: 30px;
+}
+/* Email End */
+
+/* Mobile Register Start */
+.mobileRegister__para {
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-bottom: 15px !important;
+}
+
+.mobileRegister__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobileRegister__input {
+  padding: 38px 20px;
+  border: 1px solid var(--gray-color);
+  text-align: center;
+  font-size: 20px;
+}
+
+.mobileRegister__msg {
+  color: var(--black-color);
+}
+
+.mobileRegister__msg span {
+  color: var(--primary-color);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 414px) {
+  .mobileRegister__input {
+    width: 70px;
+    padding: 18px 0px;
+  }
+}
+
+@media (max-width: 630px) {
+  .mobileRegister__input {
+    padding: 38px 10px;
+  }
+}
+/* Mobile Register End */
