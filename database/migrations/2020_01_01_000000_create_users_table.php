@@ -29,11 +29,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('status')->default(0);
             $table->string('ip_address')->nullable();
             $table->string('salt')->nullable();
-            $table->string('forgetting_password_code')->nullable();
-            $table->string('activation_code')->nullable();
-            $table->string('salt')->nullable();
-            $table->string('forgetting_password_code')->nullable();
-            $table->string('activation_code')->nullable();
+
             $table->string('active')->nullable();
             $table->string('sort')->nullable();
             $table->timestamps();

@@ -61,9 +61,9 @@ class UserDatatables extends DataTable
             ->addColumn('action', function ($model) {
                 $actions = '';
 
-                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
-                $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete']);
-                $actions .= DTHelper::dtBlockActivateButton(route($this->getRoutes()['block'], $model->id), $model->active, $this->getPermissions()['update']);
+//                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
+//                $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete']);
+//                $actions .= DTHelper::dtBlockActivateButton(route($this->getRoutes()['block'], $model->id), $model->active, $this->getPermissions()['update']);
 
                 return $actions;
             });
@@ -77,12 +77,6 @@ class UserDatatables extends DataTable
      */
     public function query(User $model)
     {
-        if ($this->request()->has('status')) {
-            if ($this->request()->get('status') == 4) {
-                return $model->newQuery();
-            }
-            return $model->newQuery()->where('status', $this->request()->get('status'));
-        }
         return $model->newQuery();
     }
 
@@ -98,26 +92,21 @@ class UserDatatables extends DataTable
      */
     public function html()
     {
-        $currentUrl = url()->full();
-        if ($this->request()->has('status')) {
-            $currentUrl = $currentUrl . "?status=" . $this->request()->get('status');
-        }
+
 
         $buttons = [Button::make('csv'),
             Button::make('excel'),
 
             Button::make('print'),
-            Button::make('reset'),
+            Button::make('reset'),  Button::make('create'),
             Button::make('reload')];
-        if (auth()->user()->hasPermission($this->getPermissions()['create'])) {
-            array_unshift($buttons, Button::make('create')->text('<i class="fa fa-plus"></i> '.trans('site.add')));
-        }
+
         return $this->builder()
             ->setTableId($this->crudName.'_datatables-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->ajax($currentUrl)
+            ->ajax()
             ->orderBy(1)
             ->parameters([
                 'drawCallback' => 'function(e) { drawTableCallback(e) }',

@@ -18,7 +18,6 @@ class CreateCitiesTable extends Migration
             $table->string('city_code')->nullable();
             $table->string('name_en')->nullable();
             $table->string('name_ar')->nullable();
-            $table->string('area_id')->nullable();
             $table->integer('country_id')->nullable();
             $table->string('code')->nullable();
             $table->string('sort')->nullable();

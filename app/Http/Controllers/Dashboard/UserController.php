@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 use Illuminate\Database\QueryException;
+use Datatables;
 
 
 class UserController extends Controller
@@ -26,16 +27,32 @@ class UserController extends Controller
 
     }//end of constructor
 
-    public function index(UserDatatables $userDatatables)
+    public function index()
     {
+        return view('dashboard.users.index');
 
-        return $userDatatables->render('dashboard.datatable2', [
-            'title' => trans('site.users'),
-            'count' => $userDatatables->count()
-        ]);
+//        return $userDatatables->render('dashboard.datatable2', [
+//            'title' => trans('site.users'),
+//            'count' => $userDatatables->count()
+//        ]);
 
 
     }//end of index
+
+    public function datatables(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = User::latest()->get();
+            return \Yajra\DataTables\DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
 
 
     public function create()

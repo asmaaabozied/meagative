@@ -26,10 +26,10 @@ class WelcomeController extends Controller
 
 //        if (auth()->user()->hasRole(['admin', 'super_admin'])) {
         $stadium = 0;
-        $users = customer::count();
-        $services = Service::count();
-        $halls = Venue::count();
-        $inquires=Inquiry::count();
+        $users = 1;
+        $services = 2;
+        $halls = 3;
+        $inquires=4;
 
 
         return view('dashboard.welcome', compact('users', 'services', 'halls','inquires'));
