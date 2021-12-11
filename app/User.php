@@ -3,11 +3,13 @@
 
 namespace App;
 use App\Notifications\ResetPasswordNotification;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 use Laratrust\Traits\LaratrustUserTrait;
+
 
 // use Modules\
 

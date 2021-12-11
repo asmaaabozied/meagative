@@ -51,7 +51,7 @@ class CountryController extends Controller
             'name_en' => 'required',
             'code' => 'required',
             'call_key' => 'required',
-            'iso3' => 'required',
+
             'mobile_ex' => 'required',
 
         ]);
@@ -105,7 +105,7 @@ class CountryController extends Controller
             'name_en' => 'required',
             'code' => 'required',
             'call_key' => 'required',
-            'iso3' => 'required',
+
             'mobile_ex' => ['required', Rule::unique('countries')->ignore($country->id),],
 
         ]);

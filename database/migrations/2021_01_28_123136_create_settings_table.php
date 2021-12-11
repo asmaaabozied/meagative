@@ -19,9 +19,10 @@ class CreateSettingsTable extends Migration
             $table->string('name')->unique()->nullable();
             $table->string('value')->unique();
             $table->string('default')->nullable();
-
-
             $table->timestamps();
+            $table->softDeletes()->nullable();
+            $table->userstamps();
+            $table->softUserstamps();
         });
     }
 

@@ -45,7 +45,7 @@ class UserController extends Controller
             $data = User::latest()->get();
             return \Yajra\DataTables\DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
+                ->addColumn('action', function ($row) {
                     $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
                     return $actionBtn;
                 })
@@ -66,7 +66,7 @@ class UserController extends Controller
     {
 
         $request->validate([
-            'name' => 'required|string',
+
             'email' => 'required|email|string|unique:users',
             'mobile' => 'required|string|unique:users',
 
@@ -88,7 +88,7 @@ class UserController extends Controller
         $request_data['status'] = 1;
 
         $user = User::create([
-            'username' => $request->name,
+            'username' => $request->username,
             'full_name_ar' => $request->full_name_ar,
             'full_name_en' => $request->full_name_en,
             'email' => $request->email,
@@ -126,7 +126,6 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
             'mobile' => ['required', Rule::unique('users')->ignore($user->id),],
 
@@ -136,7 +135,7 @@ class UserController extends Controller
 
 
         $user->update([
-            'username' => $request->name,
+            'username' => $request->username,
             'full_name_ar' => $request->full_name_ar,
             'full_name_en' => $request->full_name_en,
             'email' => $request->email,

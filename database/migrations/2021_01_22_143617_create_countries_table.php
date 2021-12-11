@@ -27,6 +27,9 @@ class CreateCountriesTable extends Migration
             $table->integer('code')->nullable();
             $table->string('active')->nullable();
             $table->timestamps();
+            $table->softDeletes()->nullable();
+            $table->userstamps();
+            $table->softUserstamps();
         });
     }
 

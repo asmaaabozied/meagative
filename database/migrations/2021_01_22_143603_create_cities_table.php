@@ -24,6 +24,9 @@ class CreateCitiesTable extends Migration
             $table->integer('active')->nullable();
             $table->string('synced')->nullable();
             $table->timestamps();
+            $table->softDeletes()->nullable();
+            $table->userstamps();
+            $table->softUserstamps();
         });
     }
 

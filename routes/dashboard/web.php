@@ -12,8 +12,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             //user routes
             Route::resource('users', 'UserController')->except(['show']);
             Route::post('users/block/{id}', 'UserController@block')->name('users.block');
-
             Route::resource('roles', 'RoleController')->except(['show']);
+            //citizen&&jobs
+            Route::resource('jobs', 'JobController')->except(['show']);
+            Route::resource('citizens', 'CitizenController')->except(['show']);
+            //cards
+            Route::resource('cards', 'CardController')->except(['show']);
+    //operations
+            Route::resource('operations', 'OperationController')->except(['show']);
 
 
             //countries
@@ -23,18 +29,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             Route::resource('cities', 'CityController')->except(['show']);
             Route::post('cities/block/{id}', 'CityController@block')->name('cities.block');
 
-
+//setting
             Route::post('settings', 'SettingController@updateAll')->name('settings.updateAll');
-
+//logout
             Route::get('logout', 'UserController@logout')->name('logout');
 
 
-            Route::get('logouts', function () {
-                auth()->logout();
-//                Session::forget('uid');
-                return redirect('/');
-//                firebase.auth().signOut();
-            })->name('logouts');
+
 
 
         });//end of dashboard routes

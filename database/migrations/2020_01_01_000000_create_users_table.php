@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('full_name_ar')->nullable();
             $table->integer('city_id')->nullable();
             $table->string('full_name_en')->nullable();
+            $table->string('image')->nullable();
 
             $table->string('registered_date')->nullable();
             $table->string('password_changed')->nullable();
@@ -33,6 +34,9 @@ class CreateUsersTable extends Migration
             $table->string('active')->nullable();
             $table->string('sort')->nullable();
             $table->timestamps();
+            $table->softDeletes()->nullable();
+            $table->userstamps();
+            $table->softUserstamps();
 
         });
     }

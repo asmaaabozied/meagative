@@ -1,115 +1,103 @@
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
-<!-- BEGIN: Head-->
 
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description"
-          content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
-    <meta name="keywords"
-          content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
-    <meta name="author" content="ThemeSelect">
-    <title>@lang('site.title')</title>
-    <link rel="apple-touch-icon" href="{{asset('style/app-assets/images/favicon/apple-touch-icon-152x152.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('style/app-assets/images/favicon/favicon-32x32.png')}}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- BEGIN: VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('style/app-assets/vendors/vendors.min.css')}}">
-    <!-- END: VENDOR CSS-->
-    <!-- BEGIN: Page Level CSS-->
-    <link rel="stylesheet" type="text/css"
-          href="{{asset('style/app-assets/css/themes/vertical-dark-menu-template/materialize.css')}}">
-    <link rel="stylesheet" type="text/css"
-          href="{{asset('style/app-assets/css/themes/vertical-dark-menu-template/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('style/app-assets/css/pages/login.css')}}">
-    <!-- END: Page Level CSS-->
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('style/app-assets/css/custom/custom.css')}}">
-    <!-- END: Custom CSS-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Kanakku - Bootstrap Admin HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('frontend/assets/img/favicon.png')}}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/plugins/fontawesome/css/all.min.css')}}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">
+
+<!--[if lt IE 9]>
+    <script src="{{asset('frontend/assets/js/html5shiv.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/respond.min.js')}}"></script>
+    <![endif]-->
 </head>
-<!-- END: Head-->
+<body>
 
-<body
-    class="vertical-layout page-header-light vertical-menu-collapsible vertical-dark-menu preload-transitions 1-column login-bg   blank-page blank-page"
-    data-open="click" data-menu="vertical-dark-menu" data-col="1-column">
-<div class="row">
-    <div class="col s12">
+<!-- Main Wrapper -->
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
         <div class="container">
-            <div id="login-page" class="row">
-                <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">
 
-                    <form action="{{ route('login') }}" method="post" class="login-form">
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
+            <img class="img-fluid logo-dark mb-2" src="{{asset('frontend/assets/img/logo.png')}}" alt="Logo">
+            <div class="loginbox">
 
-                        @include('partials._errors')
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <h1>Login</h1>
+                        <p class="account-subtitle">Access to our dashboard</p>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <h5 class="ml-4">Sign in</h5>
+                        <form action="{{ route('login') }}" method="post" class="login-form">
+                            {{ csrf_field() }}
+                            {{ method_field('post') }}
+
+                            @include('partials._errors')
+                            <div class="form-group">
+                                <label class="form-control-label">Email Address</label>
+                                <input type="email" class="form-control" name="email">
                             </div>
-                        </div>
-
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">person_outline</i>
-                                    <input id="username" type="email" name="email">
-                                    <label for="username" class="center-align">Email</label>
+                            <div class="form-group">
+                                <label class="form-control-label">Password</label>
+                                <div class="pass-group">
+                                    <input type="password" class="form-control pass-input" name="password">
+                                    <span class="fas fa-eye toggle-password"></span>
                                 </div>
                             </div>
-                            <div class="row margin">
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix pt-2">lock_outline</i>
-                                    <input id="password" type="password" name="password">
-                                    <label for="password">Password</label>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="cb1">
+                                            <label class="custom-control-label" for="cb1">Remember me</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        {{--                                        <a class="forgot-link" href="forgot-password.html">Forgot Password ?</a>--}}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col s12 m12 l12 ml-2 mt-1">
-                                    <p>
-                                        <label>
-                                            <input type="checkbox"/>
-                                            <span>Remember Me</span>
-                                        </label>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <button type="submit"
-                                            class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">
-                                        Login
-                                    </button>
-                                </div>
+                            <button class="btn btn-lg btn-block btn-primary w-100" type="submit">Login</button>
+                            <div class="login-or">
+                                <span class="or-line"></span>
+
                             </div>
 
-                        </form><!-- end of form -->
+                        </form>
 
-
-
-
-
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="content-overlay"></div>
     </div>
 </div>
+<!-- /Main Wrapper -->
 
-<!-- BEGIN VENDOR JS-->
-<script src="{{asset('style/app-assets/js/vendors.min.js')}}"></script>
-<!-- BEGIN VENDOR JS-->
-<!-- BEGIN PAGE VENDOR JS-->
-<!-- END PAGE VENDOR JS-->
-<!-- BEGIN THEME  JS-->
-<script src="{{asset('style/app-assets/js/plugins.js')}}"></script>
-<script src="{{asset('style/app-assets/js/search.js')}}"></script>
-<script src="{{asset('style/app-assets/js/custom/custom-script.js')}}"></script>
-<!-- END THEME  JS-->
-<!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS--></div>
+<!-- jQuery -->
+<script src="{{asset('frontend/assets/js/jquery-3.6.0.min.js')}}"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="{{asset('frontend/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+
+<!-- Feather Icon JS -->
+<script src="{{asset('frontend/assets/js/feather.min.js')}}"></script>
+
+<!-- Custom JS -->
+<script src="{{asset('frontend/assets/js/script.js')}}"></script>
+<div class="sidebar-overlay"></div>
+
+
 </body>
-
 </html>
-
